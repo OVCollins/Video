@@ -145,7 +145,7 @@ export const SceneFestival: React.FC<{from: number; hit: number}> = ({from, hit}
   const fly = frame < H ? 0 : E('power3.in')(Math.min(1, (frame - H) / 14));
   const wreathScale = push * (1 + fly * 3.2);
   const wreathOpacity = 1 - Math.min(1, Math.max(0, (frame - H - 6) / 8));
-  const themeP = prog(frame, H, H + 26, 'expo.out');
+  const themeP = prog(frame, H + 1, H + 27, 'expo.out');
   const flash = frame >= H - 2 ? Math.exp(-(frame - H + 2) / 7) : 0;
   const shake = frame >= H && frame < H + 14 ? Math.sin(frame * 3.1) * (14 - (frame - H)) * 0.9 : 0;
   const themeC = cue('theme');
@@ -171,7 +171,7 @@ export const SceneFestival: React.FC<{from: number; hit: number}> = ({from, hit}
           <svg width={width} height={height} style={{position: 'absolute', inset: 0, opacity: prog(frame, 0, 24)}}>
             <Wreath cx={width / 2} cy={cy} radius={R} seed={12} bellStart={4} />
           </svg>
-          <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', top: cy - height / 2, flexDirection: 'column'}}>
+          <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', top: cy - height / 2, flexDirection: 'column', opacity: 1 - prog(frame, H - 3, H + 2, 'power1.in')}}>
             <Rise at={words(0.05)} scaleFrom={0.7} dist={0}>
               <GoldText size={V ? 150 : 128} weight={900} spacing={6} sweepAt={words(0.1) + 8} glow={0.5}>2026</GoldText>
             </Rise>
