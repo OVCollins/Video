@@ -1,0 +1,26 @@
+{
+  "name": "messiah-has-come-trailer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2026 Festival of Nine Lessons & Carol – promotional trailer (Remotion)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:landscape": "remotion render src/index.ts Landscape out/Messiah-Has-Come_16x9_1080p.mp4",
+    "render:vertical": "remotion render src/index.ts Vertical out/Messiah-Has-Come_9x16_1080x1920.mp4"
+  },
+  "dependencies": {
+    "@fontsource/cinzel": "^5.3.0",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/montserrat": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@remotion/bundler": "^4.0.546",
+    "@remotion/cli": "^4.0.546",
+    "@remotion/renderer": "^4.0.546",
+    "@types/react": "^18.3.31",
+    "gsap": "^3.15.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.546",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/
+out/stills/
+*.log
+public/audio/stems/mix_pre.wav
