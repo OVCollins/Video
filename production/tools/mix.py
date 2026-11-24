@@ -18,9 +18,11 @@ T = json.load(open(os.path.join(ROOT, "src/data/timing.json")))
 C = {c["id"]: c for c in T["cues"]}
 B = json.load(open(os.path.join(ROOT, "src/data/sections.json")))
 
+NO_VOICE = os.environ.get("NO_VOICE") == "1"  # instrumental (music + SFX) version
 music, sr = sf.read(os.path.join(ROOT, "public/audio/stems/music_raw.wav"), dtype="float32"); assert sr == SR
 voice, sr = sf.read(os.path.join(ROOT, "public/audio/stems/voice_proc.wav"), dtype="float32"); assert sr == SR
 if voice.ndim > 1: voice = voice.mean(axis=1)
+if NO_VOICE: voice = voice * 0.0
 N = int((T["total"] + 0.5) * SR)
 def fit(a, n):
     if len(a) >= n: return a[:n]
@@ -163,10 +165,10 @@ lift_db = np.zeros(N)
 tt = np.arange(N) / SR
 lift_db += 3.0 * np.clip((C["intro"]["start"] - tt) / 0.8, 0, 1)
 lift_db += 6.0 * np.clip((tt - C["finale3"]["end"]) / 0.6, 0, 1)
-music_gain = music_gain * 10 ** (lift_db / 20)
+music_gain = music_gain * 10 ** ((0 if NO_VOICE else lift_db) / 20)
 mix = music * (m_level * music_gain)[:, None] + sfx + np.stack([voice, voice], 1) * 1.0
 # final gentle fade out
 fo = int(1.2 * SR); mix[-fo:] *= np.linspace(1, 0, fo)[:, None]
-sf.write(os.path.join(ROOT, "public/audio/stems/sfx.wav"), sfx, SR, subtype="PCM_24")
-sf.write(os.path.join(ROOT, "public/audio/stems/mix_pre.wav"), mix.astype(np.float32), SR, subtype="FLOAT")
+if not NO_VOICE: sf.write(os.path.join(ROOT, "public/audio/stems/sfx.wav"), sfx, SR, subtype="PCM_24")
+sf.write(os.path.join(ROOT, "public/audio/stems/mix_pre_novoice.wav" if NO_VOICE else "public/audio/stems/mix_pre.wav"), mix.astype(np.float32), SR, subtype="FLOAT")
 print("peak", float(np.abs(mix).max()))
