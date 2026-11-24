@@ -119,7 +119,7 @@ place(riser(1.4), B["announce"] - 1.4, 0.10)
 place(whoosh(1.2), B["announce"] - 0.6, 0.22)
 place(shimmer(2.6, 2400), C["festival"]["start"] - 0.1, 0.11, -0.2)  # festival title light sweep
 place(riser(2.4), B["hit"] - 2.4, 0.16)
-place(impact(), B["hit"], 0.40)
+place(impact(), B["hit"], 0.30)
 place(shimmer(3.0, 2000), B["hit"] + 0.05, 0.12, 0.2)
 place(jingle(1.8), B["hit"] + 0.1, 0.08, 0.4)
 for k in ("info", "leader", "oguibe", "ehiliz", "choirs", "overo", "chairman", "announcer"):
@@ -166,7 +166,8 @@ tt = np.arange(N) / SR
 lift_db += 3.0 * np.clip((C["intro"]["start"] - tt) / 0.8, 0, 1)
 lift_db += 6.0 * np.clip((tt - C["finale3"]["end"]) / 0.6, 0, 1)
 music_gain = music_gain * 10 ** ((0 if NO_VOICE else lift_db) / 20)
-mix = music * (m_level * music_gain)[:, None] + sfx + np.stack([voice, voice], 1) * 1.0
+sfx_gain = 10 ** ((-7.0 * env) / 20)  # SFX also step back under the narration
+mix = music * (m_level * music_gain)[:, None] + sfx * sfx_gain[:, None] + np.stack([voice, voice], 1) * 1.0
 # final gentle fade out
 fo = int(1.2 * SR); mix[-fo:] *= np.linspace(1, 0, fo)[:, None]
 if not NO_VOICE: sf.write(os.path.join(ROOT, "public/audio/stems/sfx.wav"), sfx, SR, subtype="PCM_24")

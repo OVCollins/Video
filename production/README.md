@@ -10,7 +10,12 @@ This is the promotional trailer for **Christ's Chosen Church of God Internationa
 | Narration on its own | `public/audio/voiceover.wav` |
 | Stems: music MIDI, music render, SFX, processed voice | `public/audio/stems/` |
 
-The running time is **82.5 seconds**. That is the narration at a natural pace, plus a 3.2-second musical opening and a held final frame.
+The running time is **86.7 seconds**. That is the narration at a natural pace, plus a 3.2-second musical opening and a held final frame.
+
+**Narration (current):** ElevenLabs voice *Lauren (Friendly, Comforting and Soft)*, supplied by the client (`public/audio/source/elevenlabs-lauren.mp3`). It is imported by `tools/import_voice.py`. The first version used a local Kokoro TTS voice. Those renders are kept in `out/previous-kokoro-voice/`, and the Kokoro narration and timing are in `public/audio/source/`.
+
+| Instrumental versions (music + SFX, no narration) | `out/*_NO-VOICEOVER.mp4`, `public/audio/soundtrack_instrumental.wav` |
+|---|---|
 
 ---
 
@@ -21,8 +26,7 @@ The running time is **82.5 seconds**. That is the narration at a natural pace, p
 3. **Spelling "OGUiBE".** The brief has a lowercase *i*. This looked like a typing error, so the video shows **OGUIBE**, which matches the flyer and the photo file name.
 4. **"The Elect of God".** This appears under the Senior Apostle's name as an epithet. It comes from the approved narration and the flyer, so nothing was invented.
 5. **Ketu choir photo.** The supplied picture is a screenshot of a video, with a ▶ play button over it. The button was digitally removed (`assets/choirs/ketu-cleaned.jpg`; the original is kept unchanged). A clean photo would be better. Swap it in `src/scenes/PeopleScenes.tsx` → `CHOIRS`.
-6. **Pronunciation of names.** The narration is AI-generated. Nigerian names and places use hand-tuned phonetics in `tools/voiceover.py` → `PRON`. Please listen to Unuefe Ikhuiwu, Ehigiamusoe, Ogbeide, Oguibe, Ehiliz, Fadunsi and Oke-Ira. Corrections are a one-line change, followed by a rebuild.
-7. **Narration voice.** The narration uses a synthetic neural voice (Kokoro TTS, voice `af_heart`), not a human voice actor. For a broadcast-grade result, a human recording can be dropped in as `public/audio/voiceover.wav`. Cue timings in `src/data/timing.json` would then need updating.
+6. **Pronunciation of names.** The ElevenLabs narration was used exactly as supplied. Please listen to Unuefe Ikhuiwu, Ehigiamusoe, Ogbeide, Oguibe, Ehiliz, Fadunsi and Oke-Ira. Fixing a name means regenerating that line in ElevenLabs, or supplying a new take, and re-importing it.
 
 The narration follows the approved script **verbatim**. `tools/voiceover.py` contains an assertion that the cue text, joined together, equals the approved script exactly. Abbreviations are only *spoken* in full: "(Dr)" is read as "Doctor", "Coun." as "Councillor", "10 AM" as "ten A.M.". On-screen titles are never narrated.
 
@@ -57,13 +61,21 @@ Remotion 4, React 18 and TypeScript; GSAP (easing curves); SVG and CSS for all p
 
 No AI video-generation service was available in the production environment. All motion is therefore real-time procedural animation and compositing of the supplied photographs. No footage was generated and no faces were synthesised. Every photograph is shown undistorted, with `object-fit: cover` and only a gentle push-in.
 
+## Replacing the narration with another recording
+
+1. Put the file in `public/audio/source/`.
+2. Note where each line starts and ends in the file (any audio editor). Update `GROUPS` and `EXTRA` in `tools/import_voice.py`. `EXTRA` holds the start of the words "The Messiah Has Come!" and the onset of each choir name.
+3. Run `python3 -I tools/import_voice.py public/audio/source/<file>`, then `tools/build_mix.sh`.
+4. Render. Every scene, the score's tempo map and the SFX re-time themselves to the new narration.
+
 ## Rebuilding
 
 ```bash
 npm install
 # 1. audio (needs: pip install kokoro-onnx soundfile mido numpy; apt install fluidsynth fluid-soundfont-gm)
 #    Kokoro model files: github.com/thewh1teagle/kokoro-onnx/releases (kokoro-v1.0.onnx, voices-v1.0.bin)
-tools/build_audio.sh /path/kokoro-v1.0.onnx /path/voices-v1.0.bin af_heart 0.9
+tools/build_mix.sh            # music + SFX + mix for the current narration
+# (Kokoro TTS narration instead: tools/build_audio.sh /path/kokoro-v1.0.onnx /path/voices-v1.0.bin af_heart 0.9)
 # 2. video
 npm run render:landscape
 npm run render:vertical

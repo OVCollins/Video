@@ -5,7 +5,7 @@ export const FPS = 30;
 export const TIMING = timing as {
   total: number;
   leadIn: number;
-  cues: {id: string; text: string; phonemes: string; start: number; end: number; onsets: number[]}[];
+  cues: {id: string; text: string; phonemes: string; start: number; end: number; onsets: number[]; items?: number[]; hit?: number}[];
 };
 export const SECTIONS = sections as Record<string, number>;
 export const DURATION_FRAMES = Math.ceil(TIMING.total * FPS);
@@ -24,6 +24,7 @@ export const ce = (id: string) => f(cue(id).end);
  * weighted by phoneme length — used for the choir roll-call. */
 export const itemOnsets = (id: string): number[] => {
   const c = cue(id);
+  if (c.items) return c.items; // measured onsets (recorded narration)
   const parts = c.phonemes.split(/,| ænd /).map((p) => p.trim()).filter(Boolean);
   const lens = parts.map((p) => p.replace(/[ˈˌː\s.]/g, '').length + 3);
   const tot = lens.reduce((a, b) => a + b, 0);

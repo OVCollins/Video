@@ -1,209 +1,172 @@
 {
-  "voice": "af_heart",
-  "speed": 0.9,
+  "voice": "ElevenLabs – Lauren (Friendly, Comforting and Soft)",
+  "source": "public/audio/source/elevenlabs-lauren.mp3",
   "leadIn": 3.2,
-  "total": 82.488,
+  "total": 86.7,
   "cues": [
     {
       "id": "intro",
       "text": "The season of joy, hope and celebration is here!",
       "phonemes": "ðə sˈiːzən ʌv dʒˈɔɪ, hˈoʊp ænd sˌɛləbɹˈeɪʃən ɪz hˈɪɹ!",
-      "start": 3.2,
-      "end": 6.236,
-      "onsets": [
-        4.56
-      ]
+      "start": 3.3,
+      "end": 7.4,
+      "onsets": []
     },
     {
       "id": "church",
       "text": "Christ's Chosen Church of God International, Lagos Area, proudly presents",
       "phonemes": "kɹˈaɪsts tʃˈoʊzən tʃˈɜːtʃ ʌv ɡˈɑːd ˌɪntɚnˈæʃənəl, lˈeɪɡɑːs ˈɛɹiə, pɹˈaʊdli pɹˈɛzənts",
-      "start": 7.936,
-      "end": 12.855,
-      "onsets": [
-        10.664,
-        11.848
-      ]
+      "start": 9.24,
+      "end": 14.18,
+      "onsets": []
     },
     {
       "id": "festival",
       "text": "the 2026 Festival of Nine Lessons and Carol,",
       "phonemes": "ðə twˈɛnti twˈɛntisˈɪks fˈɛstɪvəl ʌv nˈaɪn lˈɛsənz ænd kˈæɹəl,",
-      "start": 13.205,
-      "end": 16.744,
-      "onsets": [
-        15.096
-      ]
+      "start": 14.18,
+      "end": 18.44,
+      "onsets": []
     },
     {
       "id": "theme",
       "text": "themed 'The Messiah Has Come!'",
       "phonemes": "θˈiːmd, ðə mɛsˈaɪə hɐz kˈʌm!",
-      "start": 17.244,
-      "end": 18.937,
-      "onsets": [
-        17.37
-      ]
+      "start": 18.44,
+      "end": 20.91,
+      "onsets": [],
+      "hit": 19.26
     },
     {
       "id": "date",
       "text": "Join us on Sunday, 20th December 2026,",
       "phonemes": "dʒˈɔɪn ˌʌs ˌɔn sˈʌndeɪ, twˈɛntiəθ dᵻsˈɛmbɚ, twˈɛnti twˈɛntisˈɪks,",
-      "start": 20.837,
-      "end": 24.546,
-      "onsets": [
-        22.382,
-        22.84,
-        23.455,
-        24.341
-      ]
+      "start": 22.95,
+      "end": 26.56,
+      "onsets": []
     },
     {
       "id": "time",
       "text": "at 10 AM,",
       "phonemes": "æt tˈɛn ˈeɪ.ˈɛm.,",
-      "start": 24.846,
-      "end": 26.064,
-      "onsets": [
-        25.628
-      ]
+      "start": 26.56,
+      "end": 27.88,
+      "onsets": []
     },
     {
       "id": "venue",
       "text": "at 30 Fadunsi Street, Fako Estate, Oke-Ira, Ogba, Lagos.",
       "phonemes": "æt θˈɜːɾi fɑˈduːnsi stɹˈiːt, ˈfɑːkoʊ ᵻstˈeɪt, ˈoʊkeɪ ˈiːɹɑ, ˈɔɡbɑ, lˈeɪɡɑːs.",
-      "start": 26.414,
-      "end": 31.243,
-      "onsets": [
-        26.638,
-        28.061,
-        29.196,
-        30.102
-      ]
+      "start": 27.88,
+      "end": 32.46,
+      "onsets": []
     },
     {
       "id": "leader",
       "text": "Under the spiritual leadership of Senior Apostle (Dr) D.E.O. Unuefe Ikhuiwu, The Elect of God.",
       "phonemes": "ˌʌndɚ ðə spˈɪɹɪtʃˌuːəl lˈiːdɚʃˌɪp ʌv sˈiːnjɚɹ ɐpˈɑːsəl dˈɑːktɚ dˈiː ˈiː ˈoʊ unuˈɛfeɪ iˈkuːiwuː, ðɪ ᵻlˈɛkt ʌv ɡˈɑːd.",
-      "start": 32.743,
-      "end": 39.376,
-      "onsets": [
-        34.233,
-        35.456,
-        36.007,
-        36.364,
-        36.954,
-        38.303,
-        38.722
-      ]
+      "start": 34.1,
+      "end": 40.81,
+      "onsets": []
     },
     {
       "id": "oguibe",
       "text": "Featuring Apostle Samuel Oguibe",
       "phonemes": "fˈiːtʃɚɹɪŋ ɐpˈɑːsəl sˈæmjuːl oʊˈɡwiːbeɪ",
-      "start": 40.676,
-      "end": 42.89,
-      "onsets": [
-        40.765,
-        42.218
-      ]
+      "start": 42.25,
+      "end": 44.7,
+      "onsets": []
     },
     {
       "id": "ehiliz",
       "text": "and guest artiste, Ehiliz!",
       "phonemes": "ænd ɡˈɛst ɑːɹtˈiːst, ˈɛhilɪz!",
-      "start": 43.34,
-      "end": 45.051,
-      "onsets": [
-        44.39
-      ]
+      "start": 45.34,
+      "end": 47.28,
+      "onsets": []
     },
     {
       "id": "choirs",
       "text": "Also ministering, the anointed Divisional Mass Choirs of",
       "phonemes": "ˈɔːlsoʊ mˈɪnɪstɚɹɪŋ, ðɪ ɐnˈɔɪntᵻd dᵻvˈɪʒənəl mˈæs kwˈaɪɚz ʌv",
-      "start": 46.451,
-      "end": 50.137,
-      "onsets": [
-        47.824,
-        49.334
-      ]
+      "start": 48.82,
+      "end": 52.08,
+      "onsets": []
     },
     {
       "id": "choirs_a",
       "text": "Ajegunle, Bariga, Mafoluku, Festac,",
       "phonemes": "ˌɑdʒeɪˈɡuːnleɪ, bɑˈɹiːɡɑ, ˌmɑfoʊˈluːkuː, ˈfɛstæk,",
-      "start": 50.387,
-      "end": 53.473,
-      "onsets": [
-        51.377,
-        52.019
+      "start": 52.08,
+      "end": 55.66,
+      "onsets": [],
+      "items": [
+        52.08,
+        53.07,
+        53.89,
+        54.84
       ]
     },
     {
       "id": "choirs_b",
       "text": "Ojota, Ketu, Okoko and Lekki.",
       "phonemes": "oʊˈdʒoʊtɑ, ˈkeɪtuː, oʊˈkoʊkoʊ ænd ˈlɛki.",
-      "start": 53.623,
-      "end": 56.306,
-      "onsets": [
-        54.681
+      "start": 55.66,
+      "end": 58.57,
+      "onsets": [],
+      "items": [
+        55.66,
+        56.53,
+        57.25,
+        57.93
       ]
     },
     {
       "id": "overo",
       "text": "Led by Elder Frank Overo.",
       "phonemes": "lˈɛd baɪ ˈɛldɚ fɹˈæŋk oʊˈvɛɹoʊ.",
-      "start": 57.506,
-      "end": 59.242,
+      "start": 59.91,
+      "end": 61.84,
       "onsets": []
     },
     {
       "id": "chairman",
       "text": "Under the chairmanship of Deacon Coun. Godwin Ehigiamusoe.",
       "phonemes": "ˌʌndɚ ðə tʃˈɛɹmənʃˌɪp ʌv dˈiːkən kˈaʊnsələ ɡˈɑːdwɪn ˌeɪhiɡjˌɑːmuˈsɔːeɪ.",
-      "start": 60.542,
-      "end": 64.574,
-      "onsets": [
-        61.583,
-        62.999
-      ]
+      "start": 63.28,
+      "end": 67.03,
+      "onsets": []
     },
     {
       "id": "announcer",
       "text": "Announcer: Elder Kennedy Ogbeide.",
       "phonemes": "ɐnˈaʊnsɚ: ˈɛldɚ kˈɛnədi ɔɡˈbeɪideɪ.",
-      "start": 65.874,
-      "end": 68.372,
-      "onsets": [
-        66.783
-      ]
+      "start": 68.47,
+      "end": 71.08,
+      "onsets": []
     },
     {
       "id": "finale1",
       "text": "The Messiah has come!",
       "phonemes": "ðə mɛsˈaɪə hɐz kˈʌm!",
-      "start": 70.072,
-      "end": 71.298,
+      "start": 72.92,
+      "end": 74.68,
       "onsets": []
     },
     {
       "id": "finale2",
       "text": "Come, celebrate the King of Kings.",
       "phonemes": "kˈʌm, sˈɛləbɹˌeɪt ðə kˈɪŋ ʌv kˈɪŋz.",
-      "start": 72.048,
-      "end": 74.06,
-      "onsets": [
-        72.569,
-        73.526
-      ]
+      "start": 75.57,
+      "end": 78.19,
+      "onsets": []
     },
     {
       "id": "finale3",
       "text": "Don't miss it!",
       "phonemes": "dˈoʊnt mˈɪs ɪt!",
-      "start": 74.61,
-      "end": 75.488,
+      "start": 78.88,
+      "end": 79.6,
       "onsets": []
     }
   ]

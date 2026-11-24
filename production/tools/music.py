@@ -20,7 +20,7 @@ END = T["total"]
 b = {
     "intro": 0.0,
     "announce": C["church"]["start"] - 0.45,
-    "hit": C["theme"]["start"] + 0.42,
+    "hit": C["theme"].get("hit", C["theme"]["start"] + 0.42),
     "info": C["date"]["start"] - 0.55,
     "leader": C["leader"]["start"] - 0.55,
     "oguibe": C["oguibe"]["start"] - 0.35,
